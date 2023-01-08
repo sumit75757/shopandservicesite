@@ -1,0 +1,39 @@
+
+
+ <!-- <app-banner></app-banner> -->
+<!-- <app-product-list></app-product-list> -->
+<!-- <app-about-us></app-about-us> -->
+<ul class="nav nav-pills nav-justified">
+  <li class="nav-item">
+    <button [ngClass]="prod ? 'nav-link active': 'nav-link'" aria-current="page" (click)="product()">PRODUCTS</button>
+  </li>
+  <li class="nav-item">
+    <button [ngClass]="!prod ? 'nav-link active': 'nav-link'" (click)="service()">SERVICE</button>
+  </li>
+</ul>
+<app-catgorynav  *ngIf="prod" >  </app-catgorynav>
+<ng-container *ngIf="prod" >
+    <app-banner [data] = 'prod' ></app-banner>
+    <app-footer></app-footer>
+    <app-product-list></app-product-list>
+    <app-add></app-add>
+   
+</ng-container>
+<ng-container *ngIf="!prod" >
+    <app-banner [data] = 'prod'></app-banner>
+    <app-footer></app-footer>
+    <app-product-list></app-product-list>
+</ng-container>
+<!-- <app-about-us></app-about-us> -->
+<!-- <app-newcat> </app-newcat>
+ <app-banner></app-banner>
+ <app-footer></app-footer>
+ <container >
+     <app-product-list></app-product-list>
+ </container> -->
+ <!-- <app-banner></app-banner> -->
+<!-- <app-product-list></app-product-list> -->
+<!-- <app-newcat> </app-newcat>  -->
+
+<!-- <app-about-us></app-about-us> -->
+

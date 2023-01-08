@@ -1,0 +1,29 @@
+<div class="show" class="container">
+  <h1>SignIn</h1>
+  <form [formGroup]="signinForm">
+    <label>Email</label>
+    <input class="form-control" type="email" formControlName="email" /><br />
+    <label>Password</label>
+    <input
+      class="form-control"
+      type="password"
+      formControlName="password"
+      placeholder="password"
+    /><br />
+
+    <button *ngIf="btnhidde" type="button" class="btn" (click)="singIn()">
+      SingIn
+    </button>
+  </form>
+  <br /><br />
+  <form *ngIf="otp" [formGroup]="otpForm">
+    <input
+      class="form-control"
+      type="tel"
+      formControlName="otp"
+      placeholder="Otp"
+    /><br />
+    <button type="button" class="btn" (click)="sendOtp()">Otp</button>
+    <a class="m-3" (click)="resend()">Resend otp</a>
+  </form>
+</div>

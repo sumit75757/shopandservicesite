@@ -1,0 +1,88 @@
+a {
+  text-decoration: none;
+}
+
+nav {
+  font-family: monospace;
+  width: 100%;
+  background: #ffffff;
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+}
+
+ul {
+
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+li {
+  color: rgb(0, 0, 0);
+  background: #ffffff;
+  display: block;
+  float: left;
+  padding: 1rem;
+  position: relative;
+  text-decoration: none;
+  transition-duration: 0.5s;
+}
+
+li a {
+  color: rgb(0, 0, 0);
+}
+
+li a:hover {
+  background: #ffffff;
+  cursor: pointer;
+  font-size: 17px;
+  border-bottom:1px solid rgb(48, 48, 104) ;
+  color:#0275d8 ;
+  z-index: 1000000;
+}
+
+li:hover {
+  background: #ffffff;
+  cursor: pointer;
+  font-size: 17px;
+  border-bottom:2px solid rgb(137, 137, 255) ;
+  color:#0275d8 ;
+  z-index: 10000;
+}
+ul li ul {
+  background: rgb(255, 255, 255);
+  visibility: hidden;
+  opacity: 0;
+  min-width: 5rem;
+  position: absolute;
+  transition: all 0.5s ease;
+  margin-top: 1rem;
+  left: 0;
+  display: none;
+  /* transition: opacity 500ms ease, visibility 500ms ease; */
+
+}
+
+ul li:hover>ul,
+ul li ul:hover {
+  visibility: visible ;
+  opacity: 1;
+  display: block;
+  z-index: 10000;
+}
+ul li ul a :hover {
+  color: #0275d8;
+}
+
+
+ul li ul li {
+  clear: both;
+  width: 100%;
+}
+.dropdown{
+  width: 15vw;
+}
+a{
+  text-decoration:none;
+}

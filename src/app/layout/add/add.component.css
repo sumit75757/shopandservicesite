@@ -1,0 +1,21 @@
+.add {
+  object-fit: contain;
+  padding: 4px;
+  position: absolute;
+  justify-items: center;
+  width: fit-content;
+  float: left;
+  border-radius: 25px;
+}
+.add1,
+.add2 {
+  float: right;
+  position: relative;
+  justify-items: right;
+  border-radius: 25px;
+  margin-left: 500px;
+}
+.img {
+  /* position: absolute; */
+  left: 20%;
+}

@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+/* @import 'node_modules/ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import 'node_modules/ngx-owl-carousel-o/lib/styles/scss/owl.theme.default'; */
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+/* .owl-carousel.owl-item {
+  width: 350px !important;
+} */
+
+body::-webkit-scrollbar {
+  /* width: 10px;
+  background-color: grey;
+  border-radius: 25px; */
+
+}
+body::-webkit-scrollbar-thumb{
+  width: 10px;
+}
+.owl-carousel.owl-item {
+  width: 350px !important;
+}
