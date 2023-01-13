@@ -67,12 +67,13 @@
     </div>
   </div>
 
-    <owl-carousel-o [options]="customOptions">
-      <ng-container *ngFor="let data of productdetails">
-        <ng-template carouselSlide>
-          <div class="card shadow bg-body rounded" style="width: 18rem">
-            <img src="{{ imgeurl + data.productImage[0] }}" class="card-img-top p-3" alt="..." style="width:18rem;" />
-            <div class="card-body">
+  <owl-carousel-o [options]="customOptions">
+    <ng-container *ngFor="let data of productdetails">
+      <ng-template carouselSlide>
+        <div class="card shadow bg-body rounded" style="width: 18rem">
+          <img (click)="navigate(data)" src="{{ imgeurl + data.productImage[0] }}" class="card-img-top p-3" alt="..." style="width:18rem;" />
+          <div class="card-body">
+            <div (click)="navigate(data)" style="cursor: pointer;">
               <div class="product-details">
                 <div class="mb-1">
                   <span class="mt-0 mb-0">{{ data.productName }}</span><br />
@@ -92,16 +93,18 @@
                 </div>
                 <div class="fw-semibold text-center">₹{{ data.price }}</div>
               </div>
-              <div class="product-footer mt-1">
-                <button type="button" class="btn btn-primary w-100  btn-lg btn-block">Add to Cart</button>
-              </div>
+            </div>
+
+            <div class="product-footer mt-1">
+              <button type="button" class="btn btn-primary w-100  btn-lg btn-block">Add to Cart</button>
             </div>
           </div>
-        </ng-template>
-      </ng-container>
-    </owl-carousel-o>
+        </div>
+      </ng-template>
+    </ng-container>
+  </owl-carousel-o>
 
-  <div class="container">
+  <!-- <div class="container">
     <h2>Service</h2>
     <div class="row" *ngIf="!service">
       <div class="card ms-2" style="width: 19rem;">
@@ -206,4 +209,4 @@
         </ng-template>
       </ng-container>
     </owl-carousel-o>
-  </div>
+  </div> -->

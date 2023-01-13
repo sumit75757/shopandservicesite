@@ -1,12 +1,28 @@
-<div style="background-color: rgb(210, 207, 207);">
-  <p >The price and availability of items at Amazon.in are subject to change. The shopping cart is a temporary place to store a list of your items and reflects each item's most recent price.
-
-    Do you have a promotional code? We'll ask you to enter your claim code when it's time to pay.</p>
+<div class="container">
+  <div>
+   <table>
+     <tr *ngFor="let item of data">
+       <td>{{item.product.name}}</td>
+     </tr>
+   </table>
   </div>
-  <hr>
-  <div style="text-align: center; background-color: white;">
-
-  <p>See personalized recommendations</p>
-  <!-- <botton style="background-color: rgb(19, 19, 71);color: white;" routerLink="#"  >Sign-In</botton> -->
-  <p>New customer?<a  routerLink="signUp"> Start here.</a></p>
-  </div>
+ </div>
+ <div data-name="Subtotals" class="a-row a-spacing-mini sc-subtotal sc-subtotal-activecart sc-java-remote-feature"><span id="sc-subtotal-label-activecart" class="a-size-medium sc-number-of-items">
+ <div class="a-row sc-pagination">
+ <input type="hidden" name="activePage" value="0">
+ </div>
+ <div style="background-color: rgb(210, 207, 207);">
+   <p >The price and availability of items at Amazon.in are subject to change. The shopping cart is a temporary place to store a list of your items and reflects each item's most recent price.
+ 
+     Do you have a promotional code? We'll ask you to enter your claim code when it's time to pay.</p>
+   </div>
+   <hr>
+   <div style="text-align: center; background-color: white;">
+ 
+   <p>See personalized recommendations</p>
+   <!-- <botton style="background-color: rgb(19, 19, 71);color: white;" routerLink="sign-In"  >Sign-In</botton> -->
+   <p>New customer?<a  routerLink="sign-In"> Start here.</a></p>
+   </div>
+ 
+ 
+ 
