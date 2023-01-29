@@ -25,7 +25,7 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NewcatComponent } from './newcat/newcat.component';
 import { ServicehomeComponent } from './layout/servicehome/servicehome.component';
-import { FotterbottomComponent } from './layout/fotterbottom/fotterbottom.component';
+import { FooterbottomComponent } from './layout/footerbottom/footerbottom.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +46,7 @@ import { FotterbottomComponent } from './layout/fotterbottom/fotterbottom.compon
     AboutUsComponent,
     NewcatComponent,
     ServicehomeComponent,
-    FotterbottomComponent
+    FooterbottomComponent
   ],
   imports: [
     BrowserModule,
