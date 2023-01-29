@@ -17,13 +17,20 @@
     <app-footer></app-footer>
     <app-product-list></app-product-list>
     <app-add></app-add>
-   
+    <div class="foter">
+      <app-fotterbottom></app-fotterbottom>
+    </div>
 </ng-container>
+
 <ng-container *ngIf="!prod" >
     <app-banner [data] = 'prod'></app-banner>
     <app-footer></app-footer>
     <app-product-list></app-product-list>
+    <div class="foter">
+      <app-fotterbottom></app-fotterbottom>
+    </div>
 </ng-container>
+
 <!-- <app-about-us></app-about-us> -->
 <!-- <app-newcat> </app-newcat>
  <app-banner></app-banner>

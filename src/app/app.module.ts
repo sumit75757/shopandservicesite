@@ -25,6 +25,7 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NewcatComponent } from './newcat/newcat.component';
 import { ServicehomeComponent } from './layout/servicehome/servicehome.component';
+import { FotterbottomComponent } from './layout/fotterbottom/fotterbottom.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { ServicehomeComponent } from './layout/servicehome/servicehome.component
     ListProductComponent,
     AboutUsComponent,
     NewcatComponent,
-    ServicehomeComponent
+    ServicehomeComponent,
+    FotterbottomComponent
   ],
   imports: [
     BrowserModule,
