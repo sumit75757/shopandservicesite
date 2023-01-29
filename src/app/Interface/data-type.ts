@@ -30,6 +30,7 @@ export interface ProductInfo {
   salePrice?: string;
   options?: DropdownItem[];
   inStock: boolean;
+  quantity : undefined | number;
 }
 
 export interface CategoryInfo {

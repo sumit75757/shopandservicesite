@@ -10,6 +10,7 @@ import { ListProductComponent } from './products/list-product/list-product.compo
 import { ContactComponent } from './pages/contact/contact.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { CartComponent } from './layout/cart/cart.component';
+import { SigninComponent } from './auth1/signin/signin.component';
 
 const routes: Routes = [
   {
@@ -43,7 +44,16 @@ const routes: Routes = [
       {
         path : 'cart',
         component:CartComponent ,
+      },
+      {
+        path:'signin',
+        component:SigninComponent,
+      },
+      {
+        path:'signUp',
+        component:SignupComponent,
       }
+
     ],
   },
   {

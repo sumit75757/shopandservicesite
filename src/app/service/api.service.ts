@@ -1,13 +1,14 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { ProductInfo } from '../Interface/data-type';
+import { ProductInfo ,CategoryInfo,ShoppingCartItem} from '../Interface/data-type';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
+  cartdata : ShoppingCartItem[] = [];
   token:any= localStorage.getItem('token');
   // baseurl = environment.baseurl
 
@@ -39,14 +40,14 @@ export class ApiService {
     return this.http.get(this.baseurl+ 'api/catogory', {headers:this.header});
   }
 
- 
+
   catogory()
   {
     return this.http.get(this.baseurl + 'api/catogory',{headers:this.header});
   }
   catserch(serh:any)
   {
-    
+
     return this.http.get(this.baseurl + 'api/serche/catogory/'+serh.catogory);
   }
   product(id?:any)
@@ -63,4 +64,8 @@ export class ApiService {
     return this.http.get(this.baseurl + 'api/service',{headers:this.header});
   }
 
+   addtocart(data:any)
+   {
+      return this.http.post(this.baseurl + 'api/cart',data,{headers:this.header});
+   }
 }

@@ -1,6 +1,7 @@
 <div class="show" class="container">
   <h1>SignIn</h1>
-  <form [formGroup]="signinForm">
+  <!-- <form [formGroup]="signinForm"> -->
+    <form >
     <label>Email</label>
     <input class="form-control" type="email" formControlName="email" /><br />
     <label>Password</label>
@@ -16,7 +17,8 @@
     </button>
   </form>
   <br /><br />
-  <form *ngIf="otp" [formGroup]="otpForm">
+  <form>
+  <!-- <form *ngIf="otp" [formGroup]="otpForm"> -->
     <input
       class="form-control"
       type="tel"

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthServicService } from '../../services/auth-servic.service';
+// import { AuthServicService } from '../../services/auth-servic.service';
 import { FormControl,Validator,FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { analyzeAndValidateNgModules } from '@angular/compiler';
+import{ApiService} from '../../service/api.service';
+// import { analyzeAndValidateNgModules } from '@angular/compiler';
 
 @Component({
   selector: 'app-signin',
@@ -17,13 +18,13 @@ export class SigninComponent implements OnInit {
   productImg :any;
 
 
-  constructor(private auth:AuthServicService,private fb:FormBuilder,private route:Router,) { }
+  constructor(private auth:ApiService,private fb:FormBuilder,private route:Router,) { }
   loginuser:any;
   shows:boolean = false
   category:any;
   ngOnInit() {
 
-    
+
   }
   signinForm= this.fb.group({
     email:new FormControl('',[Validators.required,Validators.email]),
@@ -52,7 +53,7 @@ async  singIn(){
       //this.signinForm.addControl(  "otp", new FormControl('',[Validators.required]) )
      // this.route.navigate(['/'])
       } else {
-           return false;
+           return console.log('hi');
       }
     })
 
