@@ -1,0 +1,87 @@
+<section class="vh-100" style="background-color: #f4f5f7;">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center  h-100">
+            <div class="col col-lg-12 mb-4 mb-lg-0">
+                <div class="card mb-3" style="border-radius: .5rem;">
+                    <div class="row g-0 h-100">
+                        <div class="col-md-4 gradient-custom text-center text-white"
+                            style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+                            <img *ngIf="userdata.userImage" src={{imageURl}}{{userdata.userImage }} alt="Avatar"
+                                class="img-fluid my-5" style="width: 80px;" />
+                            <img *ngIf="userdata?.userImage" src="../../../assets/blank-profile-picture-973460_640.webp"
+                                alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
+                            <h5>{{userdata.username}}</h5>
+                            <i class="fa fa-edit mb-5"></i>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body p-4">
+                                <h6>Information</h6>
+                                <hr class="mt-0 mb-4">
+                                <div class="row pt-1">
+                                    <div class="col-6 mb-3">
+                                        <h6>Email</h6>
+                                        <p class="text-muted">{{userdata.email}}</p>
+                                    </div>
+                                    <div class="col-6 mb-3">
+                                        <h6>Phone</h6>
+                                        <p class="text-muted"> +91 {{userdata.phone}}</p>
+                                    </div>
+                                    <div class="col-6 mb-3">
+                                        <h6>Gender</h6>
+                                        <p class="text-muted"> {{userdata.zender | titlecase}}</p>
+                                    </div>
+                                    <div class="col-6 mb-3">
+                                        <h6>Address</h6>
+                                        <pre class="text-muted">{{userdata.address}},
+{{userdata.city}},{{userdata.state}} {{userdata.zip}}
+
+                                        </pre>
+                                    </div>
+                                </div>
+                                <hr class="mt-0 mb-4">
+                                <div class="row pt-1">
+                                    <div class="col-6 mb-3">
+                                        <h6>Orders </h6>
+                                        <div class="card mb-3" style="width: 206%;">
+                                            <div class="row g-0" *ngFor="let item of orders">
+                                                <div class="col-md-4">
+                                                    <img src={{imageURl}}{{item.productImage[0]}} width="100"
+                                                        height="100" class="img-fluid rounded-start" alt="Card title">
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">{{item.productName |titlecase }}</h5>
+
+                                                        <p class="card-text"><small
+                                                                class="text-muted">{{item.productInfo  }}</small>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="card-body">
+                                                        <p class="card-text aling-center"><small
+                                                                class="text-muted ">Qty-
+                                                                {{item.qty }}</small>
+                                                        </p>
+                                                        <h5 class="card-title text-end">{{item.price | priceformate }}
+                                                        </h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="d-flex justify-content-start">
+                                    <a href="#!"><i class="fa fa-facebook-f fa-lg me-3"></i></a>
+                                    <a href="#!"><i class="fa fa-twitter fa-lg me-3"></i></a>
+                                    <a href="#!"><i class="fa fa-instagram fa-lg"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

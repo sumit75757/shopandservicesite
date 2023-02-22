@@ -1,0 +1,101 @@
+<div class="container">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <p class="nav-link " [ngClass]="{'active':tabIndex ==0}" id="home-tab">Information</p>
+        </li>
+        <li class="nav-item" role="presentation">
+            <p class="nav-link" [ngClass]="{'active':tabIndex ==1}" id="profile-tab">Payment</p>
+        </li>
+        <li class="nav-item" role="presentation">
+            <p class="nav-link" [ngClass]="{'active':tabIndex == 2}" id="messages-tab">Messages</p>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab"
+            [ngClass]="{'active':tabIndex ==0}">
+            Your addresses:
+            <div *ngIf="addressHow" class="card mb-3" style="max-width: 540px;">
+                <div class="card-body">
+                    <p class="card-text">{{addressss.address}} ,{{addressss.city}} ,{{addressss.state}}
+                        ,{{addressss.zip}}</p>
+                </div>
+            </div>
+            <button class="btn btn-link m-3 ms-auto" (click)="chnagedd()"> Another Address </button>
+            <form *ngIf="!addressHow" class="container-fluid" [formGroup]="address">
+                <div class="form-group m-1">
+                    <label for="address">Address</label>
+                    <input type="text" [ngClass]="{'is-invalid': !this.address.controls['address'].valid&&
+                    this.address.controls['address'].touched}" class=" form-control p-3" id="address"
+                        formControlName="address" placeholder="Enter address">
+                </div>
+                <div class="form-group m-1">
+                    <label for="state">State</label>
+                    <select class="form-control" [ngClass]="{'is-invalid': !this.address.controls['state'].valid&&
+                    this.address.controls['state'].touched}" formControlName="state" (change)="setState($event)"
+                        id="state">
+                        <option value="" selected>Select state</option>
+                        <option *ngFor="let cat of state" value="{{cat}}">{{cat}}</option>
+                    </select>
+                </div>
+                <div class="form-group m-1">
+                    <label for="city">City</label>
+                    <select class="form-control" [ngClass]="{'is-invalid': !this.address.controls['city'].valid&&
+                    this.address.controls['state'].touched}" formControlName="city" id="city">
+                        <option value="" selected>Select city</option>
+                        <option *ngFor="let cat of city" value="{{cat}}">{{cat}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="zip">Zip</label>
+                    <input type="text" [ngClass]="{'is-invalid': !this.address.controls['zip'].valid&&
+                    this.address.controls['zip'].touched}" class=" form-control " id="zip" formControlName="zip"
+                        placeholder="Enter zip">
+                </div>
+
+            </form>
+
+        </div>
+        <div class="tab-pane" [ngClass]="{'active':tabIndex == 1}" id="profile" role="tabpanel"
+            aria-labelledby="profile-tab">
+
+            <div>
+                <form>
+                    <div class="form-check  m-5">
+                        <input class="form-check-input" (change)="select($event)" type="radio" name="flexRadioDefault"
+                            value="COD" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Case On Dilevery
+                        </label>
+                    </div>
+                    <div class="form-check  m-5">
+                        <input class="form-check-input" (change)="select($event)" type="radio" value="online"
+                            name="flexRadioDefault" id="flexRadioDefault2">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            Online Payment
+                        </label>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="tab-pane " [ngClass]="{'active':tabIndex == 2}" id="messages" role="tabpanel"
+            aria-labelledby="messages-tab " style="height: 35vh; background-color: #0d6efd;">
+            <div class="d-flex justify-content-center align-items-center" style="height: 35vh; flex-direction: column">
+                <div class="d-flex justify-content-center align-items-center"
+                    style="width: 200px; height: 200px; border-radius: 50%; background-color: green;">
+                    <i class="fa fa-check " style="font-size:120px;"></i>
+                </div>
+                <div style="font-size: xx-large; color: whitesmoke;">
+                    Order Placed
+                </div>
+            </div>
+
+        </div>
+        <button type="submit" id="butn" (click)="next()" [disabled]="tabIndex == 2"
+            class="btn btn-primary m-3 ms-auto float-end">
+            Next &nbsp; <i class="	fa fa-arrow-right"> </i> </button>
+        <button (click)="back()" class="btn btn-light m-3 ms-auto">
+            <i class="	fa fa-arrow-left"> </i> &nbsp;Back</button>
+    </div>
+</div>

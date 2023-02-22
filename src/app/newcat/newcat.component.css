@@ -1,34 +1,28 @@
-
-.container{
-    float:left;
- width: 100%;
- top: -2%;
-
+.container {
+  float: left;
+  width: 100%;
+  top: -2%;
 }
-
-.nav-item{
-    margin: 2px 22px ;
-    padding: 2px 4px;
-   
+.nav-item {
+  margin: 2px 22px;
+  padding: 2px 4px;
 }
 .nav-link {
-    color: rgb(235, 53, 53);
-    font-size:20px;
-    font-weight: 700;
-   
-   
+  color: rgb(235, 53, 53);
+  font-size: 20px;
+  font-weight: 700;
 }
-.nav-link:hover{
-    color: rgb(0, 191, 255);
+.nav-link:hover {
+  color: rgb(0, 191, 255);
 }
-.navbar{
-width: 1150px;
-position: relative;
-justify-items: center;
-left: 16%;
+.navbar {
+  width: 1150px;
+  position: relative;
+  justify-items: center;
+  left: 16%;
 }
-.dropdown-item{
-    font-size: 20px;
-    font-weight: 500;
-    color: black;
+.dropdown-item {
+  font-size: 20px;
+  font-weight: 500;
+  color: black;
 }

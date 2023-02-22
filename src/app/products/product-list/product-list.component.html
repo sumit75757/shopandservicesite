@@ -66,13 +66,14 @@
       </div>
     </div>
   </div>
-
-    <owl-carousel-o [options]="customOptions">
-      <ng-container *ngFor="let data of productdetails">
-        <ng-template carouselSlide>
-          <div class="card shadow bg-body rounded" style="width: 18rem">
-            <img src="{{ imgeurl + data.productImage[0] }}" class="card-img-top p-3" alt="..." style="width:18rem;" />
-            <div class="card-body">
+  <owl-carousel-o [options]="customOptions">
+    <ng-container *ngFor="let data of productdetails">
+      <ng-template carouselSlide>
+        <div class="card shadow bg-body rounded" style="width: 15rem">
+          <img (click)="navigate(data)" src="{{ imgeurl + data.productImage[0] }}" class="card-img-top p-3" alt="..."
+            style="width:15rem;" />
+          <div class="card-body">
+            <div (click)="navigate(data)" style="cursor: pointer;">
               <div class="product-details">
                 <div class="mb-1">
                   <span class="mt-0 mb-0">{{ data.productName }}</span><br />
@@ -92,18 +93,21 @@
                 </div>
                 <div class="fw-semibold text-center">₹{{ data.price }}</div>
               </div>
-              <div class="product-footer mt-1">
-                <button type="button" class="btn btn-primary w-100  btn-lg btn-block">Add to Cart</button>
-              </div>
+            </div>
+            <div class="product-footer mt-1">
+              <button type="button" class="btn btn-primary w-100  btn-lg btn-block" (click)="addtocart(data)">Add to
+                Cart</button>
             </div>
           </div>
-        </ng-template>
-      </ng-container>
-    </owl-carousel-o>
+        </div>
+      </ng-template>
+    </ng-container>
+  </owl-carousel-o>
+
 
   <div class="container">
-    <h2>Service</h2>
-    <div class="row" *ngIf="!service">
+    <h2>Recommended For You</h2>
+    <div class="row" *ngIf="!productdetails">
       <div class="card ms-2" style="width: 19rem;">
         <span style="width: 100%; height: 200px;" class="card-img-top placeholder" alt="..."></span>
         <div class="card-body">
@@ -170,40 +174,39 @@
       </div>
     </div>
     <owl-carousel-o [options]="customOptions">
-      <ng-container *ngFor="let data of service">
+      <ng-container *ngFor="let data of recomendedpro">
         <ng-template carouselSlide>
-          <div class="card shadow bg-body rounded" style="width: 18rem">
-            <img src="{{ imgeurl + data.serviceImage[0] }}" class="card-img-top p-3" alt="..." style="width: 18rem;" />
+          <div class="card shadow bg-body rounded" style="width: 15rem">
+            <img (click)="navigate(data)" src="{{ imgeurl + data.productImage[0] }}" class="card-img-top p-3" alt="..."
+              style="width:15rem;" />
             <div class="card-body">
-              <div class="product-details">
-                <div class="mb-1">
-                  <span class="mt-0 mb-0">{{ data.serviceName }}</span><br />
-                  <h4 class="froductname">{{ data.serviceInfo | srink }}</h4>
+              <div (click)="navigate(data)" style="cursor: pointer;">
+                <div class="product-details">
+                  <div class="mb-1">
+                    <span class="mt-0 mb-0">{{ data.productName }}</span><br />
+                    <h4 class="froductname">{{ data.productInfo | srink }}</h4>
+                  </div>
+                </div>
+                <div class="d-flex  justify-content-between">
+                  <div class="product-rating">
+                    <div class="d-flex flex-row">
+                      <div class="text-warning text-centers mb-1 me-2">
+                        <i class="fa fa-star" style="width: 25px; font-size: x-large"></i>
+                        <i class="fa fa-star" style="width: 25px; font-size: x-large"></i>
+                        <i class="fa fa-star" style="width: 25px; font-size: x-large"></i>
+                        <i class="fa fa-star" style="width: 25px; font-size: x-large"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="fw-semibold text-center">₹{{ data.price }}</div>
                 </div>
               </div>
-              <div class="roww text-center mt-5 text-bold">
-                <div class="col">
-                  <h5 class="mb-1">{{data.startTime}}</h5>
-                  <pre class="mb-0 fw-bold">Start Time</pre>
-                </div>
-                <div class="col">
-                  <p class="mb-0">To</p>
-                </div>
-                <div class="col">
-                  <h5 class="mb-1">{{data.closeTime}}</h5>
-                  <pre class="mb-0 fw-bold">Close Time</pre>
-                </div>
-              </div>
-              <div class="text-center">
-                <h6 class="mb-1">678</h6>
-                <p class="mb-0">Following</p>
-              </div>
-              <div class="product-footer mt-">
-                <button type="button" class="btn btn-primary w-100  btn-lg btn-block">Add to Cart</button>
+              <div class="product-footer mt-1">
+                <button type="button" class="btn btn-primary w-100  btn-lg btn-block" (click)="addtocart(data)">Add to
+                  Cart</button>
               </div>
             </div>
           </div>
         </ng-template>
       </ng-container>
     </owl-carousel-o>
-  </div>

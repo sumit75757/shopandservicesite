@@ -1,0 +1,17 @@
+<div>
+    <div class="top-image">
+
+    </div>
+    <div class="show  d-flex justify-content-center">
+        <img src={{baseURL}}{{userservice[0].seller.userImage}} alt="">
+    </div>
+    <div class="container">
+        <div class="row ms-5 mt-5">
+            <div class="col-4" *ngFor="let item of userservice[0].serviceImage">
+                <div class="card" style="width: 19rem;">
+                    <img class="card-img-top" src={{baseURL}}{{item}} alt="Title">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
