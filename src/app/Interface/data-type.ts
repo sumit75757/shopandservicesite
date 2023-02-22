@@ -1,4 +1,4 @@
-import {DropdownItem} from '../Interface/universal';
+import { DropdownItem } from '../Interface/universal';
 export interface CarouselInfo {
   title: string;
   description: string;
@@ -8,16 +8,12 @@ export interface CarouselInfo {
     content?: string;
     href?: string;
   };
-}
-
-export interface MenuInfo {
+}export interface MenuInfo {
   name: string;
   hasChildren: boolean;
   redirect?: string;
   children?: MenuInfo[];
-}
-
-export interface ProductInfo {
+}export interface ProductInfo {
   id: string;
   name: string;
   description: string;
@@ -30,43 +26,31 @@ export interface ProductInfo {
   salePrice?: string;
   options?: DropdownItem[];
   inStock: boolean;
-}
-
-export interface CategoryInfo {
+}export interface CategoryInfo {
   name: string;
   redirect: string;
   count?: number;
   products?: ProductInfo[];
-}
-
-export interface ShoppingCartItem {
+}export interface ShoppingCartItem {
   product: ProductInfo;
   quantity: number;
   option: DropdownItem;
-}
-
-export interface OrderInfo {
+}export interface OrderInfo {
   items?: ShoppingCartItem[];
   totalPrice?: number;
   customerInfo?: CustomerInfo;
   paymentInfo?: PaymentInfo;
   deliveryInfo?: DeliveryInfo;
-}
-
-export interface CustomerInfo {
+}export interface CustomerInfo {
   name: string;
   email: string;
   phoneNumber: string;
-}
-
-export interface PaymentInfo {
+}export interface PaymentInfo {
   holderName: string;
   cardNumber: number;
   expiredDate: string;
   cvc: number;
-}
-
-export interface DeliveryInfo {
+}export interface DeliveryInfo {
   recipientName: string;
   recipientNumber: string;
   addressLine1: string;

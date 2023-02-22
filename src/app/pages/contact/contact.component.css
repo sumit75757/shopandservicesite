@@ -3,68 +3,49 @@
   text-align: center;
   margin-bottom: 2%;
 }
-
 body {
   display: inline-block;
 }
-
 .form {
   width: 450px;
   position: relative;
-
   justify-items: center;
   padding: 7px;
   margin-left: 7%;
   margin-top: 2%;
 }
-
-
 .form-label.form-control {
   position: relative;
   justify-content: center;
   float: inline-start;
-
-
 }
-
 .form-control {
   width: 450px;
-
 }
-
 .form-label {
   font-size: large;
   font-weight: 600;
 }
-
-
 .main {
-
   vertical-align: auto;
 }
-
 #first {
-
   position: relative;
   left: 60%;
   top: -80%;
   text-align: justify;
   width: fit-content;
 }
-
 ul,
 li,
 a {
   padding: 4%;
 }
-
 .map-container {
   left: 30%;
   top: 200%;
   position: relative;
-
 }
-
 .map-container iframe {
   left: 0;
   top: 0;

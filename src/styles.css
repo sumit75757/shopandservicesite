@@ -12,14 +12,12 @@ body {
 /* .owl-carousel.owl-item {
   width: 350px !important;
 } */
-
 body::-webkit-scrollbar {
   /* width: 10px;
   background-color: grey;
   border-radius: 25px; */
-
 }
-body::-webkit-scrollbar-thumb{
+body::-webkit-scrollbar-thumb {
   width: 10px;
 }
 .owl-carousel.owl-item {

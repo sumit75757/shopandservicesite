@@ -1,28 +1,73 @@
-<div class="container">
+<div class="container mt-5">
   <div>
-   <table>
+    <!-- <table>
      <tr *ngFor="let item of data">
        <td>{{item.product.name}}</td>
      </tr>
-   </table>
+   </table> -->
   </div>
- </div>
- <div data-name="Subtotals" class="a-row a-spacing-mini sc-subtotal sc-subtotal-activecart sc-java-remote-feature"><span id="sc-subtotal-label-activecart" class="a-size-medium sc-number-of-items">
- <div class="a-row sc-pagination">
- <input type="hidden" name="activePage" value="0">
- </div>
- <div style="background-color: rgb(210, 207, 207);">
-   <p >The price and availability of items at Amazon.in are subject to change. The shopping cart is a temporary place to store a list of your items and reflects each item's most recent price.
- 
-     Do you have a promotional code? We'll ask you to enter your claim code when it's time to pay.</p>
-   </div>
-   <hr>
-   <div style="text-align: center; background-color: white;">
- 
-   <p>See personalized recommendations</p>
-   <!-- <botton style="background-color: rgb(19, 19, 71);color: white;" routerLink="sign-In"  >Sign-In</botton> -->
-   <p>New customer?<a  routerLink="sign-In"> Start here.</a></p>
-   </div>
- 
- 
- 
+</div>
+<div data-name="Subtotals" class="a-row a-spacing-mini sc-subtotal sc-subtotal-activecart sc-java-remote-feature">
+  <span id="sc-subtotal-label-activecart" class="a-size-medium sc-number-of-items">
+    <div class="container">
+      <p class="fs-3 fw-semibold">Shopping Cart
+      </p>
+      <div *ngFor="let item of cartdata">
+        <div class="card mb-3 rounded-3" style="max-width: auto;" *ngIf="item">
+          <div class="row g-0">
+            <div class="col-md-2">
+              <img src="{{baseURl+item.productImage[0]}}" width="250" class="img-fluid p-2 rounded-start"
+                alt="Card title">
+            </div>
+            <div class="col-md-6">
+              <div class="card-body">
+                <!-- <pre *ngIf="item">{{item}}</pre> -->
+                <h5 class="card-title">{{item.productName}}</h5>
+                <p class="card-text">{{item.productInfo}}</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              </div>
+              <div class="ms-3 d-flex me-5">
+                <select class="form-control " style="width: 80px; border-radius: 10%;" [selectedIndex]="item.qty-1">
+                  <option value="1">Qnt - 1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">6</option>
+                  <option value="6">6</option>
+                </select>
+                <div class="vr ms-4 mt-2 m-2 h-25"></div>
+                <div><button class="btn-link btn" (click)="removecart(item._id)">Remove</button></div>
+                <div class="vr mt-2 m-2 h-25"></div>
+                <div><button class="btn-link btn">See more like this</button></div>
+                <!-- <div class="vr mt-2  m-2  h-25"></div>  -->
+              </div>
+            </div>
+            <div class="col-md-4  ">
+              <p class="mt-5 fw-bold fs-5 text-end me-5">
+                {{item.price | priceformate }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="text-end me-5">
+        Subtotal (3 items): <span class="fw-bold"> {{total | priceformate }} </span>
+      </div>
+      <hr>
+    </div>
+    <div *ngIf="!userdata">
+      <div style="text-align: center; background-color: white;">
+        <p>See personalized recommendations</p>
+        <button style="background-color: rgb(19, 19, 71);color: white;">Sign-In</button>
+        <p>New customer?<a routerLink="auth"> Start here.</a></p>
+      </div>
+      <div style="background-color: rgb(255, 255, 255);">
+        <p>The price and availability of items at Amazon.in are subject to change. The shopping cart is a temporary
+          place
+          to store a list of your items and reflects each item's most recent price. Do you have a promotional code?
+          We'll
+          ask you to enter your claim code when it's time to pay.</p>
+      </div>
+      <hr class="hr">
+    </div>

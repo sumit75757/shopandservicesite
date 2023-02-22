@@ -1,16 +1,12 @@
-import { Component, Input } from '@angular/core';
-
-@Component({
+import { Component, Input } from '@angular/core'; @Component({
   selector: 'app-banner',
   templateUrl: './banner.component.html',
   styleUrls: ['./banner.component.css']
 })
 export class BannerComponent {
   @Input() data: any;
-  img: any[] =  []
+  img: any[] = []
   constructor() {
-    console.log(this.data);
-
     setTimeout(() => {
       if (this.data) {
         this.img = [
@@ -24,7 +20,6 @@ export class BannerComponent {
           "https://thumbs.dreamstime.com/b/ac-electrician-technician-repairing-air-conditioner-ac-electrician-technician-repairing-air-conditioner-appliance-228373389.jpg",
           "https://media.istockphoto.com/id/1163753970/photo/hes-always-ready-to-help.jpg?s=612x612&w=0&k=20&c=qQ5U2x-swbC8Rou_S5qXdQiHht8LvnRstZ224sWceoE="
         ]
-
       }
     }, 2000);
   }

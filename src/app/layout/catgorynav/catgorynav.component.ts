@@ -1,29 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Route, Router } from '@angular/router';
-import { ApiService } from 'src/app/service/api.service';
-
-@Component({
+import { ApiService } from 'src/app/service/api.service'; @Component({
   selector: 'app-catgorynav',
   templateUrl: './catgorynav.component.html',
   styleUrls: ['./catgorynav.component.css']
 })
 export class CatgorynavComponent {
   catogory: any;
-  constructor(private api : ApiService,private route :Router) {
-    this.api.catogory().subscribe((res:any)=>{
-     this.catogory = res.data
+  constructor(private api: ApiService, private route: Router) {
+    this.api.catogory().subscribe((res: any) => {
+      this.catogory = res.data
     })
-   }
-
-  //  left() {
-  //    document.getElementById('container').scrollLeft += 20;
-  //  };
-  //  right() {
-  //    document.getElementById('container').scrollLeft -= 20;
-  //  };
-  navigate(cat:any){
-    this.route.navigate(["product/"+cat])
+  }
+  navigate(cat: any) {
+    this.route.navigate(["product/" + cat])
   }
 }
-

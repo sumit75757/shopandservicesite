@@ -9,8 +9,7 @@ import { ProductListComponent } from './products/product-list/product-list.compo
 import { ListProductComponent } from './products/list-product/list-product.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
-import { CartComponent } from './layout/cart/cart.component';
-
+import { CartComponent } from './layout/cart/cart.component'; import { UserProfileComponent } from './layout/user-profile/user-profile.component';
 const routes: Routes = [
   {
     path: '',
@@ -33,27 +32,29 @@ const routes: Routes = [
         component: AboutUsComponent,
       },
       {
-        path : 'product/:catogory',
-        component:ListProductComponent ,
+        path: 'product/:catogory',
+        component: ListProductComponent,
       },
       {
-        path : 'view/:id',
-        component:ProductDetailsComponent ,
+        path: 'view/:id',
+        component: ProductDetailsComponent,
       },
       {
-        path : 'cart',
-        component:CartComponent ,
+        path: 'cart',
+        component: CartComponent,
+      },
+      {
+        path: 'user',
+        component: UserProfileComponent,
       }
     ],
   },
   {
-    path:"auth",component:SignupComponent
+    path: "auth", component: SignupComponent
   }
-];
-
-@NgModule({
+]; @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  schemas:[CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

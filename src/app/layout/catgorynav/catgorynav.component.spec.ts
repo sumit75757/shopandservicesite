@@ -1,23 +1,13 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { CatgorynavComponent } from './catgorynav.component';
-
-describe('CatgorynavComponent', () => {
+import { ComponentFixture, TestBed } from '@angular/core/testing'; import { CatgorynavComponent } from './catgorynav.component'; describe('CatgorynavComponent', () => {
   let component: CatgorynavComponent;
-  let fixture: ComponentFixture<CatgorynavComponent>;
-
-  beforeEach(async () => {
+  let fixture: ComponentFixture<CatgorynavComponent>; beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CatgorynavComponent ]
+      declarations: [CatgorynavComponent]
     })
-    .compileComponents();
-
-    fixture = TestBed.createComponent(CatgorynavComponent);
+      .compileComponents(); fixture = TestBed.createComponent(CatgorynavComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
-
-  it('should create', () => {
+  }); it('should create', () => {
     expect(component).toBeTruthy();
   });
 });
