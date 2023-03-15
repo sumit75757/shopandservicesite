@@ -1,0 +1,76 @@
+<div class="container-fluid">
+  <form [formGroup]="service">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Your Name *</label>
+      <input
+        type="text"
+        class="form-control"
+        aria-describedby="emailHelp"
+        formControlName="name"
+        [ngClass]="{
+          'is-invalid':
+            !this.service.controls['name'].valid &&
+            this.service.controls['name'].touched
+        }"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail12" class="form-label">Your Phone*</label>
+      <input
+        type="tel"
+        class="form-control"
+        formControlName="phone"
+        [ngClass]="{
+          'is-invalid':
+            !this.service.controls['phone'].valid &&
+            this.service.controls['phone'].touched
+        }"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail13" class="form-label">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        formControlName="email"
+        [ngClass]="{
+          'is-invalid':
+            !this.service.controls['email'].valid &&
+            this.service.controls['email'].touched
+        }"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail14" class="form-label">Date</label>
+      <input
+        type="date"
+        class="form-control"
+        formControlName="date"
+        [ngClass]="{
+          'is-invalid':
+            !this.service.controls['date'].valid &&
+            this.service.controls['date'].touched
+        }"
+      />
+    </div>
+    <div class="mb-3">
+      <input
+        type="time"
+        class="form-control"
+        formControlName="startTime"
+        [ngClass]="{
+          'is-invalid':
+            !this.service.controls['startTime'].valid &&
+            this.service.controls['startTime'].touched
+        }"
+        formControlName="startTime"
+        id="availabelTime"
+        placeholder="Availabel Time"
+      />
+    </div>
+
+    <button type="submit" (click)="submit()" class="btn btn-primary float-end">
+      Submit
+    </button>
+  </form>
+</div>

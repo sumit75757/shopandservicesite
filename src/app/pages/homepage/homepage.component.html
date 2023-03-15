@@ -3,25 +3,40 @@
 <!-- <app-about-us></app-about-us> -->
 <ul class="nav nav-pills nav-justified">
   <li class="nav-item">
-    <button [ngClass]="prod ? 'nav-link active': 'nav-link'" aria-current="page" (click)="product()">PRODUCTS</button>
+    <button [ngClass]="prod ? 'nav-link active' : 'nav-link'" aria-current="page" (click)="product()">
+      PRODUCTS
+    </button>
   </li>
   <li class="nav-item">
-    <button [ngClass]="!prod ? 'nav-link active': 'nav-link'" (click)="service()">SERVICE</button>
+    <button [ngClass]="!prod ? 'nav-link active' : 'nav-link'" (click)="service()">
+      SERVICE
+    </button>
   </li>
 </ul>
 <ng-container *ngIf="prod">
-  <app-catgorynav *ngIf="prod"> </app-catgorynav>
-  <app-banner [data]='prod'></app-banner>
+  <app-catgorynav (serch)="serch()" *ngIf="prod"> </app-catgorynav>
+  <div *ngIf="searchShow" class="container-fluid">
+    <div class="row height d-flex justify-content-center align-items-center">
+      <div class="col-md-8">
+        <div class="search m-1">
+          <i class="fa fa-search"></i>
+          <input type="text" class="form-control" #serch placeholder="Search">
+          <button class="btn btn-primary" (click)="search(serch)">Search</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-banner [data]="prod"></app-banner>
   <app-footer></app-footer>
   <app-product-list></app-product-list>
-  <br>
+  <br />
   <app-add></app-add>
 </ng-container>
 <ng-container *ngIf="!prod">
-  <!-- <app-banner [data]='prod'></app-banner> -->
+  <app-banner [data]='prod'></app-banner>
   <!-- <app-footer></app-footer> -->
-  <!-- <app-servicehome></app-servicehome> -->
-  <app-servicepage></app-servicepage>
+  <app-servicehome></app-servicehome>
+  <!-- <app-servicepage></app-servicepage> -->
 </ng-container>
 <!-- <app-about-us></app-about-us> -->
 <!-- <app-newcat> </app-newcat>

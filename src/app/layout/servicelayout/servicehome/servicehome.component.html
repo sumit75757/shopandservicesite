@@ -1,108 +1,186 @@
-  <div class="container">
-      <h2>Service</h2>
-      <div class="row" *ngIf="!service">
-          <div class="card ms-2" style="width: 19rem;">
-              <span style="width: 100%; height: 200px;" class="card-img-top placeholder" alt="..."></span>
-              <div class="card-body">
-                  <h5 class="card-title placeholder-wave">
-                      <span class="placeholder col-6"></span>
-                  </h5>
-                  <p class="card-text placeholder-wave">
-                      <span class="placeholder col-7"></span>
-                      <span class="placeholder col-4"></span>
-                      <span class="placeholder col-4"></span>
-                      <span class="placeholder col-6"></span>
-                      <span class="placeholder col-8"></span>
-                  </p>
-                  <a href="#" tabindex="-1" class="btn btn-primary disabled placeholder col-6"></a>
-              </div>
-          </div>
-          <div class="card ms-4" style="width: 19rem;">
-              <span style="width: 100%; height: 200px;" class="card-img-top placeholder" alt="..."></span>
-              <div class="card-body">
-                  <h5 class="card-title placeholder-wave">
-                      <span class="placeholder col-6"></span>
-                  </h5>
-                  <p class="card-text placeholder-wave">
-                      <span class="placeholder col-7"></span>
-                      <span class="placeholder col-4"></span>
-                      <span class="placeholder col-4"></span>
-                      <span class="placeholder col-6"></span>
-                      <span class="placeholder col-8"></span>
-                  </p>
-                  <a href="#" tabindex="-1" class="btn btn-primary disabled placeholder col-6"></a>
-              </div>
-          </div>
-          <div class="card ms-4" style="width: 19rem;">
-              <span style="width: 100%; height: 200px;" class="card-img-top placeholder" alt="..."></span>
-              <div class="card-body">
-                  <h5 class="card-title placeholder-wave">
-                      <span class="placeholder col-6"></span>
-                  </h5>
-                  <p class="card-text placeholder-wave">
-                      <span class="placeholder col-7"></span>
-                      <span class="placeholder col-4"></span>
-                      <span class="placeholder col-4"></span>
-                      <span class="placeholder col-6"></span>
-                      <span class="placeholder col-8"></span>
-                  </p>
-                  <a href="#" tabindex="-1" class="btn btn-primary disabled placeholder col-6"></a>
-              </div>
-          </div>
-          <div class="card ms-4" style="width: 19rem;">
-              <span style="width: 100%; height: 200px;" class="card-img-top placeholder" alt="..."></span>
-              <div class="card-body">
-                  <h5 class="card-title placeholder-wave">
-                      <span class="placeholder col-6"></span>
-                  </h5>
-                  <p class="card-text placeholder-wave">
-                      <span class="placeholder col-7"></span>
-                      <span class="placeholder col-4"></span>
-                      <span class="placeholder col-4"></span>
-                      <span class="placeholder col-6"></span>
-                      <span class="placeholder col-8"></span>
-                  </p>
-                  <a href="#" tabindex="-1" class="btn btn-primary disabled placeholder col-6"></a>
-              </div>
-          </div>
+<div class="container">
+  <h2>Service</h2>
+  <div class="row" *ngIf="!service">
+    <div class="card ms-2" style="width: 19rem">
+      <span
+        style="width: 100%; height: 200px"
+        class="card-img-top placeholder"
+        alt="..."
+      ></span>
+      <div class="card-body">
+        <h5 class="card-title placeholder-wave">
+          <span class="placeholder col-6"></span>
+        </h5>
+        <p class="card-text placeholder-wave">
+          <span class="placeholder col-7"></span>
+          <span class="placeholder col-4"></span>
+          <span class="placeholder col-4"></span>
+          <span class="placeholder col-6"></span>
+          <span class="placeholder col-8"></span>
+        </p>
+        <a
+          href="#"
+          tabindex="-1"
+          class="btn btn-primary disabled placeholder col-6"
+        ></a>
       </div>
-      <owl-carousel-o [options]="customOptions">
-          <ng-container *ngFor="let data of service">
-              <ng-template carouselSlide>
-                  <div class="card shadow bg-body rounded" style="width: 18rem">
-                      <img src="{{ imgeurl + data.serviceImage[0] }}" class="card-img-top p-3" alt="..."
-                          style="width: 18rem;" />
-                      <div class="card-body">
-                          <div class="product-details">
-                              <div class="mb-1">
-                                  <span class="mt-0 mb-0">{{ data.serviceName }}</span><br />
-                                  <h4 class="froductname">{{ data.serviceInfo | srink }}</h4>
-                              </div>
-                          </div>
-                          <div class="roww text-center mt-5 text-bold">
-                              <div class="col">
-                                  <h5 class="mb-1">{{data.startTime}}</h5>
-                                  <pre class="mb-0 fw-bold">Start Time</pre>
-                              </div>
-                              <div class="col">
-                                  <p class="mb-0">To</p>
-                              </div>
-                              <div class="col">
-                                  <h5 class="mb-1">{{data.closeTime}}</h5>
-                                  <pre class="mb-0 fw-bold">Close Time</pre>
-                              </div>
-                          </div>
-                          <div class="text-center">
-                              <h6 class="mb-1">678</h6>
-                              <p class="mb-0">Following</p>
-                          </div>
-                          <div class="product-footer mt-">
-                              <button type="button" class="btn btn-primary w-100  btn-lg btn-block">Book
-                                  Appointment </button>
-                          </div>
-                      </div>
-                  </div>
-              </ng-template>
-          </ng-container>
-      </owl-carousel-o>
+    </div>
+    <div class="card ms-4" style="width: 19rem">
+      <span
+        style="width: 100%; height: 200px"
+        class="card-img-top placeholder"
+        alt="..."
+      ></span>
+      <div class="card-body">
+        <h5 class="card-title placeholder-wave">
+          <span class="placeholder col-6"></span>
+        </h5>
+        <p class="card-text placeholder-wave">
+          <span class="placeholder col-7"></span>
+          <span class="placeholder col-4"></span>
+          <span class="placeholder col-4"></span>
+          <span class="placeholder col-6"></span>
+          <span class="placeholder col-8"></span>
+        </p>
+        <a
+          href="#"
+          tabindex="-1"
+          class="btn btn-primary disabled placeholder col-6"
+        ></a>
+      </div>
+    </div>
+    <div class="card ms-4" style="width: 19rem">
+      <span
+        style="width: 100%; height: 200px"
+        class="card-img-top placeholder"
+        alt="..."
+      ></span>
+      <div class="card-body">
+        <h5 class="card-title placeholder-wave">
+          <span class="placeholder col-6"></span>
+        </h5>
+        <p class="card-text placeholder-wave">
+          <span class="placeholder col-7"></span>
+          <span class="placeholder col-4"></span>
+          <span class="placeholder col-4"></span>
+          <span class="placeholder col-6"></span>
+          <span class="placeholder col-8"></span>
+        </p>
+        <a
+          href="#"
+          tabindex="-1"
+          class="btn btn-primary disabled placeholder col-6"
+        ></a>
+      </div>
+    </div>
+    <div class="card ms-4" style="width: 19rem">
+      <span
+        style="width: 100%; height: 200px"
+        class="card-img-top placeholder"
+        alt="..."
+      ></span>
+      <div class="card-body">
+        <h5 class="card-title placeholder-wave">
+          <span class="placeholder col-6"></span>
+        </h5>
+        <p class="card-text placeholder-wave">
+          <span class="placeholder col-7"></span>
+          <span class="placeholder col-4"></span>
+          <span class="placeholder col-4"></span>
+          <span class="placeholder col-6"></span>
+          <span class="placeholder col-8"></span>
+        </p>
+        <a
+          href="#"
+          tabindex="-1"
+          class="btn btn-primary disabled placeholder col-6"
+        ></a>
+      </div>
+    </div>
   </div>
+  <owl-carousel-o [options]="customOptions">
+    <ng-container *ngFor="let data of service">
+      <ng-template carouselSlide>
+        <div class="card shadow bg-body rounded" style="width: 18rem">
+          <img
+            src="{{ imgeurl + data.serviceImage[0] }}"
+            class="card-img-top p-3"
+            alt="..."
+            style="max-height: 12rem"
+            (click)="navigate(data._id)"
+          />
+          <div class="card-body">
+            <div (click)="navigate(data._id)">
+              <div class="product-details">
+                <div class="mb-1">
+                  <span class="mt-0 mb-0">{{ data.serviceName }}</span
+                  ><br />
+                  <h4 class="froductname">{{ data.serviceInfo | srink }}</h4>
+                </div>
+              </div>
+              <div class="roww text-center mt-5 text-bold">
+                <div class="col">
+                  <h5 class="mb-1">{{ data.startTime }}</h5>
+                  <pre class="mb-0 fw-bold">Start Time</pre>
+                </div>
+                <div class="col">
+                  <p class="mb-0">To</p>
+                </div>
+                <div class="col">
+                  <h5 class="mb-1">{{ data.closeTime }}</h5>
+                  <pre class="mb-0 fw-bold">Close Time</pre>
+                </div>
+              </div>
+              <div class="text-center">
+                <h6 class="mb-1">678</h6>
+                <p class="mb-0">Following</p>
+              </div>
+            </div>
+            <div class="product-footer mt-">
+              <button
+                type="button"
+                class="btn btn-primary w-100 btn-lg btn-block"
+                (click)="booking(data)"
+              >
+                Book Appointment
+              </button>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </ng-container>
+  </owl-carousel-o>
+</div>
+<div
+  *ngIf="modeel"
+  id="myModal"
+  class="modal d-block"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="myModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog rounded">
+    <div class="modal-content p-3">
+      <div class="modal-header">
+        <h3 id="myModalLabel">Modal header</h3>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          (click)="close()"
+          aria-hidden="true"
+        >
+          ×
+        </button>
+      </div>
+      <div>
+        <app-servicebooking [data]="servicedata"></app-servicebooking>
+      </div>
+      <!-- <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true" (click)="close()">Close</button>
+        <button class="btn btn-primary">Save changes</button>
+      </div> -->
+    </div>
+  </div>
+</div>

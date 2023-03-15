@@ -1,11 +1,12 @@
-<div class="m-1"  style="position: relative;" >
-<nav role="navigation" class="shadow-lg  rounded">
+<div class="m-1 " style="position: relative;">
+  <nav role="navigation" class="shadow-lg d-flex justify-content-between  rounded">
     <ul>
-      <li *ngFor="let i of catogory" >{{i.name}}
+      <li *ngFor="let i of catogory">{{i.name}}
         <ul class="dropdown">
-          <li *ngFor="let sub of i.subcaetogorys" (click)="navigate(sub.name)" > {{sub.name}} </li>
+          <li *ngFor="let sub of i.subcaetogorys" (click)="navigate(sub.name)"> {{sub.name}} </li>
         </ul>
       </li>
     </ul>
+    <button class="btn btn-light aling-right fa fa-search me-2" (click)="serchshow()"></button>
   </nav>
 </div>

@@ -70,20 +70,20 @@
     <ng-container *ngFor="let data of productdetails">
       <ng-template carouselSlide>
         <div class="card shadow bg-body rounded" style="width: 15rem">
-          <img (click)="navigate(data)" src="{{ imgeurl + data.productImage[0] }}" class="card-img-top p-3" alt="..."
+          <img (click)="navigate(data)" src="{{ imgeurl + data.productImage[0] }}" class="card-img-top p-1" alt="..."
             style="width:15rem;" />
           <div class="card-body">
             <div (click)="navigate(data)" style="cursor: pointer;">
               <div class="product-details">
-                <div class="mb-1">
-                  <span class="mt-0 mb-0">{{ data.productName }}</span><br />
-                  <h4 class="froductname">{{ data.productInfo | srink }}</h4>
+                <div class="">
+                  <span class="mt-0 mb-0 fw-bold">{{ data.productName }}</span><br />
+                  <p class="froductname text-muted text-wrap">{{ data.productInfo | srink }}</p>
                 </div>
               </div>
               <div class="d-flex  justify-content-between">
                 <div class="product-rating">
                   <div class="d-flex flex-row">
-                    <div class="text-warning text-centers mb-1 me-2">
+                    <div class="text-warning text-centers mb-1 me-1">
                       <i class="fa fa-star" style="width: 25px; font-size: x-large"></i>
                       <i class="fa fa-star" style="width: 25px; font-size: x-large"></i>
                       <i class="fa fa-star" style="width: 25px; font-size: x-large"></i>

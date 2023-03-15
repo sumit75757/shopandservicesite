@@ -2,16 +2,29 @@
     <div class="top-image">
 
     </div>
-    <div class="show  d-flex justify-content-center">
-        <img src={{baseURL}}{{userservice[0].seller.userImage}} alt="">
+    <div class="top">
+        <div class="show  d-flex justify-content-center">
+            <img class="" src={{baseURL}}{{userservice[0].seller.userImage}} alt="">
+        </div>
+        <div class="text-center text-muted">
+            <h3>{{userservice[0].seller.username}}</h3>
+        </div>
+        <div class="text-center">
+            <h1>{{userservice[0].serviceName}}</h1>
+        </div>
     </div>
     <div class="container">
         <div class="row ms-5 mt-5">
             <div class="col-4" *ngFor="let item of userservice[0].serviceImage">
-                <div class="card" style="width: 19rem;">
-                    <img class="card-img-top" src={{baseURL}}{{item}} alt="Title">
+                <div class="card mt-5 cardimg" style="width: 19rem;">
+                    <img class="card-img-top rounded" src={{baseURL}}{{item}} alt="Title">
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="container">
+        <div [innerHTML]="userservice[0].discrption">
+
         </div>
     </div>
 </div>
