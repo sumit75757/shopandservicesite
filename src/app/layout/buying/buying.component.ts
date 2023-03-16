@@ -3,7 +3,7 @@ import { FormBuilder, FormControl, Validators } from "@angular/forms";
 import { NgxSpinnerService } from "ngx-spinner";
 import { ToastrService } from "ngx-toastr";
 import { ApiService } from "src/app/service/api.service";
-import  Swal from "sweetalert2";
+import Swal from "sweetalert2";
 declare var Razorpay: any;
 @Component({
   selector: "app-buying",
@@ -13,21 +13,16 @@ declare var Razorpay: any;
 export class BuyingComponent implements OnInit {
   @Output("closemodel") closemodel: EventEmitter<any> = new EventEmitter();
   @Input() product: any;
+  productarr: any[] = []
   sta: any;
   paymentID: any;
-  constructor(
-    private service: ApiService,
-    private fb: FormBuilder,
-    private toastr: ToastrService,
-    private spinner: NgxSpinnerService,
-    private cd: ChangeDetectorRef,
-
-  ) {
-    console.log(this.product);
-  }
-
+  message: any;
+  total: any = 0;
   state: any;
   city: any;
+  tabIndex = 0;
+  addressHow: any;
+  addressss: any = JSON.parse(localStorage.getItem("userData") + "");
   userdata = JSON.parse(localStorage.getItem("userData") + "");
   address = this.fb.group({
     address: new FormControl("", [Validators.required]),
@@ -35,7 +30,48 @@ export class BuyingComponent implements OnInit {
     state: new FormControl("", [Validators.required]),
     zip: new FormControl("", [Validators.required]),
   });
-  tabIndex = 0;
+  constructor(
+    private service: ApiService,
+    private fb: FormBuilder,
+    private toastr: ToastrService,
+    private spinner: NgxSpinnerService,
+  ) {
+
+  }
+
+   ngOnInit() {
+    console.log(this.product);
+    try {
+      this.product.forEach((element: any) => {
+        this.productarr.push(element)
+      });
+      this.productarr.forEach((element: any) => {
+        this.total += (element.qty == 1 ? element.price : element.price * element.qty)
+        console.log(this.total, element.qty);
+      });
+      console.log(this.productarr);
+    } catch (error) {
+      this.productarr = [this.product]
+      debugger
+      this.productarr.forEach((element: any) => {
+        this.total += (element.quantity == 1 ? element.price : element.price * element.quantity)
+        console.log(this.total, element.quantity);
+      });
+    }
+
+    this.service.state().subscribe((res) => {
+      console.log(res);
+      this.sta = res;
+      this.state = Object.keys(res);
+      console.log(this.state);
+    });
+    console.log(this.product);
+
+    if (this.addressss.city && this.addressss.state && this.addressss.address) {
+      this.addressHow = true;
+    }
+
+  }
 
   razorPayOptions: any = {
     key: "rzp_test_aEuup9ULohHsIp",
@@ -71,29 +107,14 @@ export class BuyingComponent implements OnInit {
     },
   };
 
-  addressHow: any;
-  addressss: any = JSON.parse(localStorage.getItem("userData") + "");
 
-  ngOnInit() {
-    this.service.state().subscribe((res) => {
-      console.log(res);
-      this.sta = res;
-      this.state = Object.keys(res);
-      console.log(this.state);
-    });
-    console.log(this.product);
 
-    if (this.addressss.city && this.addressss.state && this.addressss.address) {
-      this.addressHow = true;
-    }
-  }
   chnagedd() {
     this.addressHow = this.addressHow ? false : true;
   }
 
   setState(e: any) {
     const state = e.target.value;
-
     this.city = this.sta[state];
     console.log(this.city);
   }
@@ -105,23 +126,19 @@ export class BuyingComponent implements OnInit {
   }
 
   next() {
-    console.log(this.tabIndex);
-
     if (this.tabIndex == 0) {
       if (this.addressHow) {
         this.address.patchValue(this.addressss);
       }
       if (this.address.valid) {
-        this.service
-          .updateSeller(this.address.value, this.userdata._id)
-          .subscribe((res: any) => {
-            if ((res.response = "success")) {
-              localStorage.setItem("userData", JSON.stringify(res));
-              this.tabIndex++;
-            } else {
-              this.toastr.error("Somthing Wrong!");
-            }
-          });
+        this.service.updateSeller(this.address.value, this.userdata._id).subscribe((res: any) => {
+          if ((res.response = "success")) {
+            localStorage.setItem("userData", JSON.stringify(res));
+            this.tabIndex++;
+          } else {
+            this.toastr.error("Somthing Wrong!");
+          }
+        });
       }
     } else if (this.tabIndex == 1) {
       this.tabIndex = 2;
@@ -133,48 +150,51 @@ export class BuyingComponent implements OnInit {
       }
     }
   }
-  placeorder() {
+   placeorder() {
     this.spinner.show();
-
     if (this.address.valid && (this.paymentID || this.method == "COD")) {
-      let data: any = this.address.value;
-      data.userId = this.addressss._id;
-      data.productId = this.product._id;
-      data.quantity = this.product.quantity;
-      data.price = this.product.price * this.product.quantity;
-      data.payment = this.paymentID
-        ? this.paymentID.razorpay_payment_id
-        : "COD";
-      this.service.orderplace(data).subscribe(
-        (res) => {
-          setTimeout(() => {
-            this.closemodel.emit()
+      for (let index = 0; index < this.productarr.length; index++) {
+        const element = this.productarr[index];
+        debugger
+        let data: any = this.address.value;
+        data.userId = this.addressss._id;
+        data.productId = element._id;
+        data.quantity = element.qty;
+        data.price = element.price * (element.quantity ? element.quantity : element.qty) ;
+        data.payment = this.paymentID ? this.paymentID.razorpay_payment_id : "COD";
+         this.service.orderplace(data).subscribe(
+          (res) => {
+            if (this.productarr.length == index+1 ) {
+              this.closemodels()
+            }
+          },
+          (err) => {
+            console.log(err);
             this.spinner.hide();
-            Swal.fire('ORDER!', 'Your Order Place Successfully ', 'success');
-
-          }, 2000);
-        },
-        (err) => {
-          console.log(err);
-          this.spinner.hide();
-        }
-      );
-      console.log(data);
+          }
+        );
+        console.log(data);
+      }
+      this.spinner.hide();
     }
   }
+
+  closemodels(){
+    Swal.fire('ORDER!', 'Your Order Place Successfully ', 'success');
+    this.closemodel.emit()
+  }
+
   back() {
     this.tabIndex--;
   }
 
   proceed() {
-    this.razorPayOptions.amount =
-      this.product.price * this.product.quantity * 100;
+    this.razorPayOptions.amount = this.total * 100;
     var rzp1 = new Razorpay(this.razorPayOptions);
     rzp1.open();
     document.getElementById("butn")?.click();
     this.responhendel(this.razorPayOptions.handler);
   }
-  message: any;
   responhendel(res?: any): any {
     this.paymentID = res;
     if (res["razorpay_payment_id"]) {

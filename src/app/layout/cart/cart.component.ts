@@ -34,4 +34,11 @@ export class CartComponent {
       this.tosty.error("Something Wrong")
     })
   }
+  modeel:any;
+  modalopen(){
+    this.modeel =true;
+  }
+  close(){
+    this.modeel =false;
+  }
 }

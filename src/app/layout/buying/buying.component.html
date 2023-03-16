@@ -8,12 +8,12 @@
         </li>
         <li class="nav-item" role="presentation">
             <p class="nav-link" [ngClass]="{ active: tabIndex == 1 }" id="profile-tab">
-                Payment
+                Messages
             </p>
         </li>
         <li class="nav-item" role="presentation">
             <p class="nav-link" [ngClass]="{ active: tabIndex == 2 }" id="messages-tab">
-                Messages
+                Payment
             </p>
         </li>
     </ul>
@@ -96,34 +96,38 @@
                     addressss.state
                     }},{{ addressss.zip }}
                 </div>
-                <div class="col-12">
-                    <hr />
-                </div>
-                <div class="col-6">
-                    Product Name : {{product.productName}}
-                </div>
-                <div class="col-6">
-                    Product Info : {{product.productInfo}}
-                </div>
-                <div class="col-6 mt-2">
-                    Product Qnt : {{product.quantity}}
-                </div>
-                <div class="col-6 mt-2">
-                    Product Price : {{product.price}}
-                </div>
-                <div class="col-12">
-                    <hr />
-                </div> 
-                <div class="col-12 mt-3  ">
-                    <div class="float-end d-flex">
+            </div>
+            <div class="row" *ngFor="let item of productarr ">
 
-                        <p class=" me-5">
-                            Total Price :
-                        </p>
-                        <p class="me-5 fw-bold">
-                            {{product.price * product.quantity}}
-                        </p>
-                    </div>
+                <div class="col-12">
+                    <hr />
+                </div>
+                <div class="col-6">
+                    Product Name : {{item.productName}}
+                </div>
+                <div class="col-6">
+                    Product Info : {{item.productInfo}}
+                </div>
+                <div class="col-6 mt-2">
+                    Product Qnt : {{item.quantity}}
+                </div>
+                <div class="col-6 mt-2">
+                    Product Price : {{item.price}}
+                </div>
+                <div class="col-12">
+                    <hr />
+                </div>
+
+            </div>
+            <div class="col-12 mt-3  ">
+                <div class="float-end d-flex">
+
+                    <p class=" me-5">
+                        Total Price :
+                    </p>
+                    <p class="me-5 fw-bold">
+                        {{total}}
+                    </p>
                 </div>
             </div>
         </div>
@@ -148,8 +152,7 @@
                 </form>
             </div>
         </div>
-        <button type="submit" id="butn" (click)="next()" 
-            class="btn btn-primary m-3 ms-auto float-end">
+        <button type="submit" id="butn" (click)="next()" class="btn btn-primary m-3 ms-auto float-end">
             Next &nbsp; <i class="fa fa-arrow-right"> </i>
         </button>
         <button (click)="back()" class="btn btn-light m-3 ms-auto">
