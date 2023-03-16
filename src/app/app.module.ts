@@ -33,6 +33,7 @@ import { ServicepageComponent } from "./layout/servicelayout/servicepage/service
 import { ServicebookingComponent } from "./layout/servicelayout/servicebooking/servicebooking.component";
 import { AmazingTimePickerModule } from "amazing-time-picker";
 
+
 @NgModule({
   declarations: [
     AppComponent,

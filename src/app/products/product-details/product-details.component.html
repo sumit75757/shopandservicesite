@@ -153,7 +153,7 @@
         <button type="button" class="close" data-dismiss="modal" (click)="close()" aria-hidden="true">×</button>
       </div>
       <div>
-        <app-buying [product]="product"></app-buying>
+        <app-buying (closemodel)="close()" [product]="product"></app-buying>
       </div>
       <!-- <div class="modal-footer">
         <button class="btn" data-dismiss="modal" aria-hidden="true" (click)="close()">Close</button>
