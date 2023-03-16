@@ -146,7 +146,7 @@ export class BuyingComponent implements OnInit {
         ? this.paymentID.razorpay_payment_id
         : "COD";
       this.service.orderplace(data).subscribe(
-        (res) => {
+        (res:any) => {
           setTimeout(() => {
             this.closemodel.emit()
             this.spinner.hide();
@@ -154,7 +154,7 @@ export class BuyingComponent implements OnInit {
 
           }, 2000);
         },
-        (err) => {
+        (err:any) => {
           console.log(err);
           this.spinner.hide();
         }
