@@ -6,12 +6,15 @@
           <div class="row g-0 h-100">
             <div class="col-md-4 gradient-custom text-center text-white"
               style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-              <img *ngIf="userdata.userImage" src={{imageURl}}{{userdata.userImage }} alt="Avatar"
+              <img *ngIf="userdata.userImage" [src]="imageURl + userdata.userImage" alt="Avatar"
                 class="img-fluid my-5" style="width: 80px;" />
-              <img *ngIf="userdata?.userImage" src="../../../assets/blank-profile-picture-973460_640.webp" alt="Avatar"
+              <img *ngIf="!userdata.userImage" src="../../../assets/blank-profile-picture-973460_640.webp" alt="Avatar"
                 class="img-fluid my-5" style="width: 80px;" />
               <h5>{{userdata.username}}</h5>
-              <i class="fa fa-edit mb-5"></i>
+              <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                <i style="color: #ffffff;" class="fa fa-edit mb-5"></i>
+              </button>
+
             </div>
             <div class="col-md-8">
               <div class="card-body p-4">
@@ -84,19 +87,19 @@
                     <h6>Product Orders </h6>
                     <div class="card mb-3" style="width: 206%;">
                       <div class="row g-0" *ngFor="let item of orders">
-                        <div class="col-md-4">
-                          <img src={{imageURl}}{{item.productImage[0]}} width="100" height="100"
-                            class="img-fluid rounded-start" alt="Card title">
+                        <div class="col-md-4" (click)="navigate(item)">
+                          <img src={{imageURl}}{{item.productImage[0]}} (click)="navigate(item)" width="100"
+                            height="100" class="img-fluid rounded-start" alt="Card title">
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4" (click)="navigate(item)">
                           <div class="card-body">
                             <h5 class="card-title">{{item.productName |titlecase }}</h5>
 
-                            <p class="card-text"><small class="text-muted">{{item.productInfo }}</small>
+                            <p class="card-text"><small class="text-muted">{{item.productInfo | srink}}</small>
                             </p>
                           </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4" (click)="navigate(item)">
                           <div class="card-body">
                             <p class="card-text aling-center"><small class="text-muted ">Qty-
                                 {{item.qty }}</small>
@@ -123,3 +126,108 @@
     </div>
   </div>
 </section>
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Update Profile</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="userupdate">
+
+          <div class=" auth-content">
+
+            <div class=" mb-4">
+              <label for=""  class="form-label">Username</label>
+              <input type="text" class="form-control" [ngClass]="{'is-invalid': !this.userupdate.controls['username'].valid&&
+                 this.userupdate.controls['username'].touched}" placeholder="Name" formControlName="username">
+            </div>
+
+            <div class="form-group mb-4 fill">
+              <label for=""  class="form-label">Email</label>
+              <input type="email" class="form-control" [ngClass]="{'is-invalid': !this.userupdate.controls['email'].valid&&
+                 this.userupdate.controls['email'].touched}" placeholder="Email" formControlName="email">
+            </div>
+
+
+            <div class=" mb-4">
+              <label for=""  class="form-label">Phone</label>
+              <input type="text" class="form-control" [ngClass]="{'is-invalid': !this.userupdate.controls['phone'].valid&&
+                 this.userupdate.controls['phone'].touched}" placeholder="Phone" formControlName="phone">
+            </div>
+
+            <!-- <div class=" mb-4">
+                <input type="text" class="form-control" [ngClass]="{'is-invalid': !this.userupdate.controls['age'].valid&&
+                 this.userupdate.controls['age'].touched}" placeholder="Age" formControlName="age">
+              </div> -->
+
+            <div class=" mb-4">
+              <label for="exampleFormControlTextarea1"  class="form-label">Address</label>
+              <input type="text" class="form-control" id="exampleFormControlTextarea1" [ngClass]="{'is-invalid': !this.userupdate.controls['address'].valid&&
+                 this.userupdate.controls['address'].touched}" placeholder="address" formControlName="address">
+            </div>
+
+            <div class=" mb-4">
+              <label for=""  class="form-label">State</label>
+              <div class="form-group">
+                <select class="form-control" [ngClass]="{'is-invalid': !this.userupdate.controls['state'].valid&&
+               this.userupdate.controls['state'].touched}" formControlName="state" (change)="setState($event)"
+               id="state">
+                  <option value="" selected>Select state</option>
+                  <option *ngFor="let cat of states" value="{{cat}}">{{cat}}</option>
+                </select>
+              </div>
+            </div>
+            <div class=" mb-4">
+              <label for=""  class="form-label">City</label>
+              <div class="form-group">
+                <select class="form-control" [ngClass]="{'is-invalid': !this.userupdate.controls['city'].valid}" formControlName="city" id="city">
+                  <option value="" selected >Select city</option>
+                  <option *ngFor="let cat of city" value="{{cat}}">{{cat}}</option>
+                </select>
+              </div>
+            </div>
+
+
+            <div class=" mb-4">
+              <label for=""  class="form-label">Zip</label>
+              <input type="text" class="form-control" [ngClass]="{'is-invalid': !this.userupdate.controls['zip'].valid&&
+                 this.userupdate.controls['zip'].touched}" placeholder="Zip" formControlName="zip">
+            </div>
+
+            <div class=" mb-4">
+              <label for=""  class="floating-label">Zender</label>
+              <select class="form-control" placeholder="zender" [ngClass]="{'is-invalid': !this.userupdate.controls['zender'].valid&&
+                 this.userupdate.controls['zender'].touched}" formControlName="zender">
+                <option value="" selected> Select zender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+
+            <div class="form-group fill">
+              <label class="floating-labelf" for="Icon">Profie Image</label>
+              <input type="file" class="form-control"
+                [ngClass]="{'is-invalid': !this.userupdate.controls['userImage'].valid && !file}"
+                (change)="fileHendler($event)">
+            </div>
+          </div>
+
+
+        </form>
+        
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="close" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="submit()">Update</button>
+      </div>
+    </div>
+  </div>
+</div>

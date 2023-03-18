@@ -124,4 +124,20 @@ export class ApiService {
 
     return this.http.get(this.baseurl + "api/serche?serch=" + res.serch);
   }
+  userupdate(data:any,id:any){
+    return this.http.put(this.baseurl + "api/auth/userUpdate/"+id, data, {
+      headers: this.header,
+    });
+  }
+  getState() {
+    return this.http.get('../../../assets/state.json')
+
+  }
+  getuser(id:any){
+    return this.http.get(this.baseurl + "api/auth/seller/"+id, {
+      headers: this.header,
+    });
+    
+  }
+
 }

@@ -9,18 +9,21 @@ import { ToastrService } from 'ngx-toastr'; import { environment } from 'src/env
 export class CartComponent {
   userdata: any;
   cartdata: any;
-  total: any = 0;
+  total: any ;
   baseURl: any = environment.Imageurl
   constructor(private api: ApiService, private tosty: ToastrService) {
     this.userdata = localStorage.getItem("userData")
     this.getcart()
   }
+
   getcart() {
+    let total: any = 0;
     let userid: any = JSON.parse(localStorage.getItem("userData") + '')._id
     this.api.gettocart(userid).subscribe((res: any) => {
       this.cartdata = res.data
       this.cartdata.forEach((element: any) => {
-        this.total += (element.qty == 1 ? element.price : element.price * element.qty)
+        total += (element.qty == 1 ? element.price : element.price * element.qty)
+        this.total = total
         console.log(this.total, element.qty);
       });
     }, (err: any) => {
@@ -33,5 +36,12 @@ export class CartComponent {
     }, (err: any) => {
       this.tosty.error("Something Wrong")
     })
+  }
+  modeel:any;
+  modalopen(){
+    this.modeel =true;
+  }
+  close(){
+    this.modeel =false;
   }
 }
