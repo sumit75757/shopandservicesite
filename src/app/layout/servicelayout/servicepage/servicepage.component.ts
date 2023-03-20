@@ -10,6 +10,7 @@ import { environment } from "../../../../environments/environment";
 export class ServicepageComponent {
   userservice: any;
   baseURL = environment.Imageurl;
+  modeel: boolean =false;
   constructor(
     private service: ApiService,
     private activeRoute: ActivatedRoute
@@ -23,4 +24,11 @@ export class ServicepageComponent {
   }
 
   ngOnInit() {}
+  booking() {
+    this.modeel = true;
+    console.log(this.modeel);
+  }
+  close() {
+    this.modeel = false;
+  }
 }

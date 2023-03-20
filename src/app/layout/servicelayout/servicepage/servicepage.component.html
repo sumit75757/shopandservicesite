@@ -23,8 +23,52 @@
         </div>
     </div>
     <div class="container">
+        <div class="mt-4 mb-4 d-flex justify-content-center">
+            <button type="button" class="btn btn-primary btn-lg" (click)="booking()"  > Book Appointment</button>
+        </div>
+    </div>
+    <div class="container">
         <div [innerHTML]="userservice[0].discrption">
 
         </div>
     </div>
+</div>
+
+
+
+
+<div
+  *ngIf="modeel"
+  id="myModal"
+  class="modal d-block"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="myModalLabel"
+  aria-hidden="true"
+  style="background-color: rgba(0, 0, 0, 0.526);"
+>
+  <div class="modal-dialog " style=" border-top-left-radius: 50px;
+  border-bottom-right-radius: 50px;">
+    <div class="modal-content p-3">
+      <div class="modal-header">
+        <h3 id="myModalLabel">Book Appointment</h3>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          (click)="close()"
+          aria-hidden="true"
+        >
+          ×
+        </button>
+      </div>
+      <div>
+        <app-servicebooking (close)="close()" [data]="userservice[0]"></app-servicebooking>
+      </div>
+      <!-- <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true" (click)="close()">Close</button>
+        <button class="btn btn-primary">Save changes</button>
+      </div> -->
+    </div>
+  </div>
 </div>
