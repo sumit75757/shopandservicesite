@@ -14,18 +14,8 @@
   </li>
 </ul>
 <ng-container *ngIf="prod">
-  <app-catgorynav (serch)="serch()" *ngIf="prod"> </app-catgorynav>
-  <div *ngIf="searchShow" class="container-fluid">
-    <div class="row height d-flex justify-content-center align-items-center">
-      <div class="col-md-8">
-        <div class="search m-1">
-          <i class="fa fa-search"></i>
-          <input type="text" class="form-control" #serch placeholder="Search">
-          <button class="btn btn-primary" (click)="search(serch)">Search</button>
-        </div>
-      </div>
-    </div>
-  </div>
+  <app-catgorynav  [data]="prod"  *ngIf="prod"> </app-catgorynav>
+  <app-search *ngIf="searchShow"> </app-search>
   <app-banner [data]="prod"></app-banner>
   <app-footer></app-footer>
   <app-product-list></app-product-list>
@@ -33,9 +23,11 @@
   <app-add></app-add>
 </ng-container>
 <ng-container *ngIf="!prod">
-  <app-banner [data]='prod'></app-banner>
+  <app-catgorynav *ngIf="!prod" [data]="prod"> </app-catgorynav>
+  <app-banner   [data]='prod'></app-banner>
+
   <!-- <app-footer></app-footer> -->
-  <app-servicehome></app-servicehome>
+  <app-servicehome (bannershow)="bannershows($event)"></app-servicehome>
   <!-- <app-servicepage></app-servicepage> -->
 </ng-container>
 

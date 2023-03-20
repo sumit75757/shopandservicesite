@@ -34,6 +34,7 @@ import { ServicebookingComponent } from "./layout/servicelayout/servicebooking/s
 import { AmazingTimePickerModule } from "amazing-time-picker";
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { ForgetpassComponent } from './auth1/forgetpass/forgetpass.component';
+import { SearchComponent } from './layout/search/search.component';
 
 
 @NgModule({
@@ -62,6 +63,7 @@ import { ForgetpassComponent } from './auth1/forgetpass/forgetpass.component';
     ServicepageComponent,
     ServicebookingComponent,
     ForgetpassComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,

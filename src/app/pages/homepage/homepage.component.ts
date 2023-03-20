@@ -11,19 +11,22 @@ export class HomepageComponent {
   posts: ProductInfo[] = [];
   prod: any = true;
   searchShow: any = false;
+  bannershow = true;
   constructor(private api: ApiService, private route: Router) {}
   product() {
+    
     this.prod = true;
+    console.log(this.prod);
   }
   service() {
     this.prod = false;
   }
   serch() {
-    this.searchShow = true;
     console.log(this.searchShow);
+    this.searchShow = this.searchShow ? false:true;
   }
-  search(item: any) {
-    this.route.navigate(["product/serch/" + item.value]);
-    console.log(item.value);
-  }
+  bannershows(date: any):void {
+    this.bannershow =date
+}
+
 }

@@ -13,6 +13,7 @@ import { CartComponent } from "./layout/cart/cart.component";
 import { UserProfileComponent } from "./layout/user-profile/user-profile.component";
 import { ServicepageComponent } from "./layout/servicelayout/servicepage/servicepage.component";
 import { ForgetpassComponent } from "./auth1/forgetpass/forgetpass.component";
+import { ServicehomeComponent } from "./layout/servicelayout/servicehome/servicehome.component";
 const routes: Routes = [
   {
     path: "",
@@ -43,8 +44,17 @@ const routes: Routes = [
         component: ListProductComponent,
       },
       {
+        path: "service/serch/:serch",
+        component: ServicehomeComponent,
+      },
+      
+      {
         path: "view/:id",
         component: ProductDetailsComponent,
+      },
+      {
+        path: "services/:cat",
+        component: ServicehomeComponent,
       },
       {
         path: "service/:id",

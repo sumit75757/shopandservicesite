@@ -1,7 +1,7 @@
-<div class="m-1 " style="position: relative;">
+<div *ngIf="data" class="m-1 " style="position: relative;">
   <nav role="navigation" class="shadow-lg d-flex justify-content-between  rounded">
     <ul>
-      <li *ngFor="let i of catogory">{{i.name}}
+      <li *ngFor="let i of catogory" >{{i.name}}
         <ul class="dropdown">
           <li *ngFor="let sub of i.subcaetogorys" (click)="navigate(sub.name)"> {{sub.name}} </li>
         </ul>
@@ -10,3 +10,13 @@
     <button class="btn btn-light aling-right fa fa-search me-2" (click)="serchshow()"></button>
   </nav>
 </div>
+<div *ngIf="!data" class="m-1 " style="position: relative;">
+  <nav role="navigation" class="shadow-lg d-flex justify-content-between  rounded">
+    <ul>
+      <li *ngFor="let i of catogory" (click)="navigate(i.name)"  >{{i.name}}
+      </li>
+    </ul>
+    <button class="btn btn-light aling-right fa fa-search me-2" (click)="serchshow()"></button>
+  </nav>
+</div>
+<app-search [data]="data" *ngIf="searchShow"> </app-search>

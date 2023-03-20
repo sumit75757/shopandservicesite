@@ -48,6 +48,10 @@ export class ApiService {
   catserch(serh: any) {
     return this.http.get(this.baseurl + "api/serche/catogory/" + serh.catogory);
   }
+  servicecatserch(serh: any) {
+    return this.http.get(this.baseurl + "api/serche/service/" + serh);
+  }
+  
   product(id?: any) {
     if (id) {
       return this.http.get(this.baseurl + "api/product/" + id, {
@@ -58,6 +62,11 @@ export class ApiService {
         headers: this.header,
       });
     }
+  }
+  serviceserch(serch:any){
+    return this.http.get(this.baseurl + "api/serche/serviceserch/"+serch, {
+      headers: this.header,
+    });
   }
   service(id?: any) {
     console.log(id);
@@ -71,6 +80,11 @@ export class ApiService {
         headers: this.header,
       });
     }
+  }
+  servicecat(){
+    return this.http.get(this.baseurl + "api/servicecat", {
+      headers: this.header,
+    });
   }
   addtocart(data: any, id?: any) {
     if (id) {
