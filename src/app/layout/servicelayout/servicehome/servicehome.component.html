@@ -175,7 +175,7 @@
         </button>
       </div>
       <div>
-        <app-servicebooking [data]="servicedata"></app-servicebooking>
+        <app-servicebooking (close)="close()" [data]="servicedata"></app-servicebooking>
       </div>
       <!-- <div class="modal-footer">
         <button class="btn" data-dismiss="modal" aria-hidden="true" (click)="close()">Close</button>

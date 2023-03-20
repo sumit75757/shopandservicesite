@@ -22,6 +22,9 @@ export class ApiService {
   singup(data: any) {
     return this.http.post(this.baseurl + "api/auth/singup", data);
   }
+  forgot(data: any) {
+    return this.http.post(this.baseurl + "api/auth/forgot", data);
+  }
   otp(data: any) {
     return this.http.post(this.baseurl + "api/auth/varification/", data, {
       headers: this.header,
@@ -138,6 +141,26 @@ export class ApiService {
       headers: this.header,
     });
     
+  }
+  updatecart(id:any,data:any){
+    return this.http.put(this.baseurl + "api/cart/"+id, data, {
+      headers: this.header,
+    });
+  }
+  cancelOrder(id:any,data:any){
+    return this.http.put(this.baseurl + "api/orders/"+id, data,{
+      headers: this.header,
+    });
+  }
+  setemail(data:any){
+    return this.http.post(this.baseurl + "api/auth/varification/refund",data, {
+      headers: this.header,
+    });
+  }
+  sentemail(data:any){
+    return this.http.post(this.baseurl + "api/auth/varification/appoinmetbook",data, {
+      headers: this.header,
+    });
   }
 
 }

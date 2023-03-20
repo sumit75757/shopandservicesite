@@ -39,7 +39,7 @@ export class BuyingComponent implements OnInit {
 
   }
 
-   ngOnInit() {
+  ngOnInit() {
     console.log(this.product);
     try {
       this.product.forEach((element: any) => {
@@ -96,8 +96,10 @@ export class BuyingComponent implements OnInit {
         if (confirm("Are you sure, you want to close the form?")) {
           let txt = "You pressed OK!";
           console.log("Checkout form closed by the user");
+          document.getElementsByTagName("body")[0].style.overflow = 'auto'
         } else {
           let txt = "You pressed Cancel!";
+          document.getElementsByTagName("body")[0].style.overflow = 'auto'
           console.log("Complete the Payment");
         }
       },
@@ -150,7 +152,7 @@ export class BuyingComponent implements OnInit {
       }
     }
   }
-   placeorder() {
+  placeorder() {
     this.spinner.show();
     if (this.address.valid && (this.paymentID || this.method == "COD")) {
       for (let index = 0; index < this.productarr.length; index++) {
@@ -160,11 +162,11 @@ export class BuyingComponent implements OnInit {
         data.userId = this.addressss._id;
         data.productId = element._id;
         data.quantity = element.quantity ? element.quantity : element.qty;
-        data.price = element.price * (element.quantity ? element.quantity : element.qty) ;
+        data.price = element.price * (element.quantity ? element.quantity : element.qty);
         data.payment = this.paymentID ? this.paymentID.razorpay_payment_id : "COD";
-         this.service.orderplace(data).subscribe(
+        this.service.orderplace(data).subscribe(
           (res) => {
-            if (this.productarr.length == index+1 ) {
+            if (this.productarr.length == index + 1) {
               this.closemodels()
             }
           },
@@ -179,9 +181,10 @@ export class BuyingComponent implements OnInit {
     }
   }
 
-  closemodels(){
+  closemodels() {
     Swal.fire('ORDER!', 'Your Order Place Successfully ', 'success');
     this.closemodel.emit()
+    document.getElementsByTagName("body")[0].style.overflow = 'auto'
   }
 
   back() {

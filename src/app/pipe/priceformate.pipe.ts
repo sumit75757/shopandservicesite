@@ -7,7 +7,6 @@ export class PriceformatePipe implements PipeTransform {
 
   transform(number: any, ...args: any[]): any {
 
-    console.log(number);
     let num: string = number.toString()
     if (number == 0) {
       return 0;
@@ -31,7 +30,7 @@ export class PriceformatePipe implements PipeTransform {
       }
       // millions
       else if (number >= 100000 && number <= 9999999) {
-        return "₹ " + num.slice(0, 1) + ',' + num.slice(2, 4) + ',' + num.slice(3, 9);
+        return "₹ " + num.slice(0, 1) + ',' + num.slice(1, 3) + ',' + num.slice(3, 9);
       }
       // billions
       // else if (number >= 1000000000 && number <= 999999999999) {

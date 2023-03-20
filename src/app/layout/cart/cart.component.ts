@@ -22,9 +22,12 @@ export class CartComponent {
     this.api.gettocart(userid).subscribe((res: any) => {
       this.cartdata = res.data
       this.cartdata.forEach((element: any) => {
-        total += (element.qty == 1 ? element.price : element.price * element.qty)
+        console.log(element.price);
+        total += element.price * element.qty
         this.total = total
-        console.log(this.total, element.qty);
+        console.log(total);
+        
+        // console.log(this.total, element.qty);
       });
     }, (err: any) => {
     })
@@ -33,6 +36,16 @@ export class CartComponent {
     this.api.rmovecart(id).subscribe((res: any) => {
       this.getcart()
       this.tosty.warning("From Cart", "Remove")
+    }, (err: any) => {
+      this.tosty.error("Something Wrong")
+    })
+  }
+  chartupdate(e:any,item:any){
+    console.log(item);
+    
+    let data = {quantity : e.target.value}
+    this.api.updatecart(item._id,data).subscribe((res: any) => {
+      this.getcart()
     }, (err: any) => {
       this.tosty.error("Something Wrong")
     })

@@ -32,6 +32,8 @@ import { PriceformatePipe } from "./pipe/priceformate.pipe";
 import { ServicepageComponent } from "./layout/servicelayout/servicepage/servicepage.component";
 import { ServicebookingComponent } from "./layout/servicelayout/servicebooking/servicebooking.component";
 import { AmazingTimePickerModule } from "amazing-time-picker";
+import { ImageCropperModule } from 'ngx-image-cropper';
+import { ForgetpassComponent } from './auth1/forgetpass/forgetpass.component';
 
 
 @NgModule({
@@ -59,6 +61,7 @@ import { AmazingTimePickerModule } from "amazing-time-picker";
     PriceformatePipe,
     ServicepageComponent,
     ServicebookingComponent,
+    ForgetpassComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,6 +74,7 @@ import { AmazingTimePickerModule } from "amazing-time-picker";
     ToastrModule.forRoot(),
     NgxSpinnerModule.forRoot(),
     AmazingTimePickerModule,
+    ImageCropperModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent],

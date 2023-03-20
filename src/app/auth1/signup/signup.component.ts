@@ -88,6 +88,10 @@ export class SignupComponent implements OnInit {
       (err: any) => {
       })
   }
+  forgotpass(){
+    this.route.navigate(['/forgote-password'])
+
+  }
 }
 // function res(res: any) {
 //   throw new Error('Function not implemented.');

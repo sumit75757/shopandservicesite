@@ -12,6 +12,7 @@ import { AboutUsComponent } from "./pages/about-us/about-us.component";
 import { CartComponent } from "./layout/cart/cart.component";
 import { UserProfileComponent } from "./layout/user-profile/user-profile.component";
 import { ServicepageComponent } from "./layout/servicelayout/servicepage/servicepage.component";
+import { ForgetpassComponent } from "./auth1/forgetpass/forgetpass.component";
 const routes: Routes = [
   {
     path: "",
@@ -63,6 +64,10 @@ const routes: Routes = [
     path: "auth",
     component: SignupComponent,
   },
+  {
+    path: "forgote-password",
+    component: ForgetpassComponent,
+  }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

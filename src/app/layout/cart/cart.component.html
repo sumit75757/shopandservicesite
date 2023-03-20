@@ -27,7 +27,7 @@
                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
               </div>
               <div class="ms-3 d-flex me-5">
-                <select class="form-control " style="width: 80px; border-radius: 10%;" [selectedIndex]="item.qty-1">
+                <select class="form-control " style="width: 80px; border-radius: 10%;" (change)="chartupdate($event,item)"[selectedIndex]="item.qty-1">
                   <option value="1">Qnt - 1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -44,7 +44,7 @@
             </div>
             <div class="col-md-4  ">
               <p class="mt-5 fw-bold fs-5 text-end me-5">
-                {{item.price | priceformate }}
+                {{item.price* item.qty| priceformate }}
               </p>
             </div>
           </div>
