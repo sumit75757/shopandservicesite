@@ -176,5 +176,10 @@ export class ApiService {
       headers: this.header,
     });
   }
+  feedbacksend(data:any){
+    return this.http.post(this.baseurl + "api/feeback",data, {
+      headers: this.header,
+    });
+  }
 
 }
